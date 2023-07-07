@@ -14,4 +14,6 @@ public interface ControllerInterface {
     List<Book> allBooks();
 
     List<Book> searchBooksByISBN(String isbn);
+
+    List<LibraryMember> searchMembersById(String id);
 }

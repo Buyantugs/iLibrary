@@ -6,29 +6,53 @@ import javax.swing.*;
 
 public class CMenuBar extends JMenuBar {
     private Auth role;
+    private UILauncher launcher;
     private JMenu menu = new JMenu("Options");
 
-    CMenuBar() {
+    CMenuBar(UILauncher launcher) {
+        this.launcher = launcher;
         setRole(null);
+
+        JMenuItem logoutMenuItem = new JMenuItem("Logout");
+        logoutMenuItem.addActionListener(e -> {
+            launcher.navigateTo("LoginPanel");
+        });
+        menu.add(logoutMenuItem);
     }
 
     private void setLibrarianMenuItems() {
+        JMenuItem showAllBooksMenuItem = new JMenuItem("Show All Books");
         JMenuItem addMemberMenuItem = new JMenuItem("Add Member");
-        JMenuItem editMemberMenuItem = new JMenuItem("Edit Member");
-        JMenuItem addBookItem = new JMenuItem("Add Book");
+        JMenuItem addBookItem = new JMenuItem("Add Book Copy");
 
+        showAllBooksMenuItem.addActionListener(e -> {
+            launcher.navigateTo("ShowAllBooksPanel");
+        });
+
+        addMemberMenuItem.addActionListener(e -> {
+            launcher.navigateTo("AddMemberPanel");
+        });
+
+        addBookItem.addActionListener(e -> {
+        });
+
+        menu.add(showAllBooksMenuItem);
         menu.add(addMemberMenuItem);
-        menu.add(editMemberMenuItem);
         menu.add(addBookItem);
     }
 
     private void setAdminMenuItems() {
-        JMenuItem checkoutBookMenuItem = new JMenuItem("Checkout Book");
-        JMenuItem searchBookByIdMenuItem = new JMenuItem("Search Book By Id");
+        JMenuItem showAllMembersMenuItem = new JMenuItem("Show All Members");
         JMenuItem showCheckoutRecordsMenuItem = new JMenuItem("Show Checkout Records");
 
-        menu.add(checkoutBookMenuItem);
-        menu.add(searchBookByIdMenuItem);
+        showAllMembersMenuItem.addActionListener(e -> {
+            launcher.navigateTo("ShowAllMembersPanel");
+        });
+
+        showCheckoutRecordsMenuItem.addActionListener(e -> {
+        });
+
+        menu.add(showAllMembersMenuItem);
         menu.add(showCheckoutRecordsMenuItem);
     }
 

@@ -10,24 +10,27 @@ public class UILauncher extends JFrame {
     private LoginPanel loginPanel;
     private ShowAllBooksPanel showAllBooksPanel;
     private AddMemberPanel addMemberPanel;
+    private ShowAllMembersPanel showAllMembersPanel;
     private AddBookPanel addBookPanel;
     private CMenuBar menuBar;
 
     public UILauncher() {
+        setTitle("iLibrary");
         mainPanel = new JPanel();
-        menuBar = new CMenuBar();
+        menuBar = new CMenuBar(this);
 
         loginPanel = new LoginPanel(this, menuBar);
-        showAllBooksPanel = new ShowAllBooksPanel(this);
+        showAllBooksPanel = new ShowAllBooksPanel();
+        showAllMembersPanel = new ShowAllMembersPanel();
         addMemberPanel = new AddMemberPanel(this);
         addBookPanel = new AddBookPanel(this);
 
         mainPanel.add(loginPanel);
         mainPanel.add(showAllBooksPanel);
+        mainPanel.add(showAllMembersPanel);
         mainPanel.add(addMemberPanel);
         mainPanel.add(addBookPanel);
 
-        setTitle("iLibrary");
         setResizable(false);
         add(mainPanel);
         setJMenuBar(menuBar);
@@ -54,6 +57,16 @@ public class UILauncher extends JFrame {
                     } else if (panel.getName().equals(to)) {
                         panel.setVisible(true);
                     }
+                }
+            }
+        }
+    }
+
+    public void navigateTo(String to) {
+        for (Component component : mainPanel.getComponents()) {
+            if (component instanceof JPanel panel) {
+                if (panel.getName() != null) {
+                    panel.setVisible(panel.getName().equals(to));
                 }
             }
         }

@@ -5,6 +5,7 @@ import com.iLibrary.views.table.ShowableOnCTable;
 import java.io.Serializable;
 
 final public class LibraryMember extends Person implements ShowableOnCTable, Serializable {
+    private static final long serialVersionUID = -2226197306790714013L;
     private final String memberId;
 
     public LibraryMember(String memberId, String fname, String lname, String tel, Address add) {
@@ -22,8 +23,6 @@ final public class LibraryMember extends Person implements ShowableOnCTable, Ser
         return "Member Info: " + "ID: " + memberId + ", name: " + getFirstName() + " " + getLastName() +
                 ", " + getTelephone() + " " + getAddress();
     }
-
-    private static final long serialVersionUID = -2226197306790714013L;
 
     @Override
     public String showThisDataOnTable(int rowIndex, int columnIndex) {

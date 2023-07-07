@@ -13,12 +13,12 @@ public class ShowAllBooksPanel extends JPanel {
     private CTable<Book> bookCTable;
     private SystemController controller;
 
-    ShowAllBooksPanel(UILauncher launcher) {
-        launcher.setTitle("iLibrary: Show All Books");
+    ShowAllBooksPanel() {
         setName("ShowAllBooksPanel");
         setLayout(new BorderLayout());
         controller = new SystemController();
         bookCTable = new CTable<>(new String[]{"ISBN", "Title", "Max Checkout"}, controller.allBooks());
+        bookCTable.setComponentPopupMenu(getPopupMenu());
 
         setPreferredSize(new Dimension(Util.WINDOW_DIMENSION.width - 50, Util.WINDOW_DIMENSION.height - 65));
         add(new JScrollPane(bookCTable));
@@ -35,5 +35,14 @@ public class ShowAllBooksPanel extends JPanel {
             List<Book> searchedResult = controller.searchBooksByISBN(searchTextField.getText().trim());
             bookCTable.setRows(searchedResult);
         });
+    }
+
+    private JPopupMenu getPopupMenu() {
+        JPopupMenu menu = new JPopupMenu();
+
+        JMenuItem checkoutMenuItem = new JMenuItem("Checkout Book");
+        menu.add(checkoutMenuItem);
+
+        return menu;
     }
 }

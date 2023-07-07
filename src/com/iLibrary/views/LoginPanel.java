@@ -1,6 +1,7 @@
 package com.iLibrary.views;
 
-import com.iLibrary.models.Auth;
+import com.iLibrary.controllers.SystemController;
+import com.iLibrary.exceptions.LoginException;
 import com.iLibrary.utils.Util;
 
 import javax.swing.*;
@@ -12,6 +13,7 @@ public class LoginPanel extends JPanel {
     private JLabel passwordLabel;
     private JPasswordField passTextField;
     private JButton loginBtn;
+    private SystemController controller;
 
     LoginPanel(UILauncher launcher, CMenuBar menuBar) {
         setName("LoginPanel");
@@ -44,8 +46,20 @@ public class LoginPanel extends JPanel {
         loginBtn.setBounds(265, 185, 100, 25);
 
         loginBtn.addActionListener(e -> {
-            launcher.navigateTo("LoginPanel", "ShowAllBooksPanel");
-            menuBar.setRole(Auth.BOTH);
+            controller = new SystemController();
+            try {
+                controller.login(usernameTextField.getText().trim(), String.valueOf(passTextField.getPassword()));
+                clearTextFields();
+                launcher.navigateTo("LoginPanel", "ShowAllBooksPanel");
+                menuBar.setRole(SystemController.currentAuth);
+            } catch (LoginException ex) {
+                System.err.println(ex.getMessage());
+            }
         });
+    }
+
+    private void clearTextFields() {
+        usernameTextField.setText("");
+        passTextField.setText("");
     }
 }
