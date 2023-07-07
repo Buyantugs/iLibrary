@@ -8,6 +8,7 @@ import java.awt.*;
 public class UILauncher extends JFrame {
     private JPanel mainPanel;
     private LoginPanel loginPanel;
+    private ShowAllBooksPanel showAllBooksPanel;
     private AddMemberPanel addMemberPanel;
     private AddBookPanel addBookPanel;
     private CMenuBar menuBar;
@@ -17,10 +18,12 @@ public class UILauncher extends JFrame {
         menuBar = new CMenuBar();
 
         loginPanel = new LoginPanel(this, menuBar);
+        showAllBooksPanel = new ShowAllBooksPanel(this);
         addMemberPanel = new AddMemberPanel(this);
         addBookPanel = new AddBookPanel(this);
 
         mainPanel.add(loginPanel);
+        mainPanel.add(showAllBooksPanel);
         mainPanel.add(addMemberPanel);
         mainPanel.add(addBookPanel);
 

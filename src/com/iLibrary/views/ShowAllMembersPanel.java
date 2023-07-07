@@ -1,2 +1,7 @@
-package com.iLibrary.views;public class ShowAllMemberPanel {
+package com.iLibrary.views;
+
+import javax.swing.*;
+
+public class ShowAllMembersPanel extends JPanel {
+
 }

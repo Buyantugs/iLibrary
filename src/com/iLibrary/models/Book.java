@@ -1,5 +1,7 @@
 package com.iLibrary.models;
 
+import com.iLibrary.views.table.ShowableOnCTable;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +12,7 @@ import java.util.Optional;
 /**
  *
  */
-final public class Book implements Serializable {
+final public class Book implements ShowableOnCTable, Serializable {
 
     private static final long serialVersionUID = 6110690276685962829L;
     private BookCopy[] copies;
@@ -113,4 +115,17 @@ final public class Book implements Serializable {
         return maxCheckoutLength;
     }
 
+    @Override
+    public String showThisDataOnTable(int rowIndex, int columnIndex) {
+        switch (columnIndex) {
+            case 0:
+                return isbn;
+            case 1:
+                return title;
+            case 2:
+                return String.valueOf(maxCheckoutLength);
+            default:
+                return "";
+        }
+    }
 }

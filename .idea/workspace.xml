@@ -8,29 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c266f634-31c5-438b-8f29-d99cb3ecf2e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/utils/Util.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/AddBookPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/AddMemberPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/CMenuBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/LoginPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllBooksPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllMembersPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/table/CTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/table/ShowableOnCTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/controllers/ControllerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/controllers/ControllerInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/controllers/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccessFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccessFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/TestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/exceptions/LibrarySystemException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/exceptions/LibrarySystemException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/exceptions/LoginException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/exceptions/LoginException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/Auth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/Author.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/BookCopy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/BookCopy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/LibraryMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/LibraryMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/AddBookPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/AddBookPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/AddMemberPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/AddMemberPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/LoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +31,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>

@@ -3,7 +3,6 @@ package com.iLibrary.views;
 import com.iLibrary.models.Auth;
 import com.iLibrary.utils.Util;
 
-import java.awt.*;
 import javax.swing.*;
 
 public class LoginPanel extends JPanel {
@@ -45,8 +44,8 @@ public class LoginPanel extends JPanel {
         loginBtn.setBounds(265, 185, 100, 25);
 
         loginBtn.addActionListener(e -> {
-            launcher.navigateTo("LoginPanel", "AddMemberPanel");
-            menuBar.setRole(Auth.LIBRARIAN);
+            launcher.navigateTo("LoginPanel", "ShowAllBooksPanel");
+            menuBar.setRole(Auth.BOTH);
         });
     }
 }

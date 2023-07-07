@@ -1,6 +1,5 @@
 package com.iLibrary.controllers;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,18 +25,20 @@ public class SystemController implements ControllerInterface {
     }
 
     @Override
-    public List<String> allMemberIds() {
+    public List<LibraryMember> allLibraryMembers() {
         DataAccess da = new DataAccessFacade();
-        List<String> retval = new ArrayList<>();
-        retval.addAll(da.readMemberMap().keySet());
-        return retval;
+        return da.readMemberMap().values().stream().toList();
     }
 
     @Override
-    public List<String> allBookIds() {
+    public List<Book> allBooks() {
         DataAccess da = new DataAccessFacade();
-        List<String> retval = new ArrayList<>();
-        retval.addAll(da.readBooksMap().keySet());
-        return retval;
+        return da.readBooksMap().values().stream().toList();
+    }
+
+    @Override
+    public List<Book> searchBooksByISBN(String isbn) {
+        DataAccess da = new DataAccessFacade();
+        return da.readBooksMap().values().stream().filter(book -> book.getIsbn().startsWith(isbn)).toList();
     }
 }
