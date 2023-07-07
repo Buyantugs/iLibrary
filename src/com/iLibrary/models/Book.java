@@ -14,10 +14,10 @@ final public class Book implements Serializable {
 
     private static final long serialVersionUID = 6110690276685962829L;
     private BookCopy[] copies;
-    private List<Author> authors;
-    private String isbn;
-    private String title;
-    private int maxCheckoutLength;
+    private final List<Author> authors;
+    private final String isbn;
+    private final String title;
+    private final int maxCheckoutLength;
 
     public Book(String isbn, String title, int maxCheckoutLength, List<Author> authors) {
         this.isbn = isbn;

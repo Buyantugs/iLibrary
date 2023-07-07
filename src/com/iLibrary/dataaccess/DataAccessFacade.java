@@ -16,11 +16,11 @@ import com.iLibrary.models.*;
 public class DataAccessFacade implements DataAccess {
 
     enum StorageType {
-        BOOKS, MEMBERS, USERS;
+        BOOKS, MEMBERS, USERS
     }
 
     public static final String OUTPUT_DIR = System.getProperty("user.dir")
-            + "\\src\\dataaccess\\storage";
+            + "//src//com//iLibrary//dataaccess//storage";
     public static final String DATE_PATTERN = "MM/dd/yyyy";
 
     //implement: other save operations
@@ -33,29 +33,21 @@ public class DataAccessFacade implements DataAccess {
 
     @SuppressWarnings("unchecked")
     public HashMap<String, Book> readBooksMap() {
-        //Returns a Map with name/value pairs being
-        //   isbn -> Book
         return (HashMap<String, Book>) readFromStorage(StorageType.BOOKS);
     }
 
     @SuppressWarnings("unchecked")
     public HashMap<String, LibraryMember> readMemberMap() {
-        //Returns a Map with name/value pairs being
-        //   memberId -> LibraryMember
         return (HashMap<String, LibraryMember>) readFromStorage(
                 StorageType.MEMBERS);
     }
 
-
+    @SuppressWarnings("unchecked")
     public HashMap<String, User> readUserMap() {
-        //Returns a Map with name/value pairs being
-        //   userId -> User
         return (HashMap<String, User>) readFromStorage(StorageType.USERS);
     }
 
 
-    /////load methods - these place test data into the storage area
-    ///// - used just once at startup
     static void loadBookMap(List<Book> bookList) {
         HashMap<String, Book> books = new HashMap<String, Book>();
         bookList.forEach(book -> books.put(book.getIsbn(), book));

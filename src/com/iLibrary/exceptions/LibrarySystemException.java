@@ -2,9 +2,7 @@ package com.iLibrary.exceptions;
 
 import java.io.Serializable;
 
-public class LibrarySystemException extends Exception implements Serializable {
-	
-	private static final long serialVersionUID = 3326915348398932420L;
+public class LibrarySystemException extends Exception {
 	public LibrarySystemException() {
 		super();
 	}

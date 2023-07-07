@@ -3,7 +3,7 @@ package com.iLibrary.models;
 import java.io.Serializable;
 
 final public class LibraryMember extends Person implements Serializable {
-	private String memberId;
+	private final String memberId;
 	
 	public LibraryMember(String memberId, String fname, String lname, String tel,Address add) {
 		super(fname,lname, tel, add);
@@ -15,8 +15,6 @@ final public class LibraryMember extends Person implements Serializable {
 		return memberId;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "Member Info: " + "ID: " + memberId + ", name: " + getFirstName() + " " + getLastName() + 
