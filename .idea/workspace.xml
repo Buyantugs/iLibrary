@@ -9,16 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c266f634-31c5-438b-8f29-d99cb3ecf2e4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/controllers/ControllerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/controllers/ControllerInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/controllers/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/LibraryMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/LibraryMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/utils/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/CMenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/CMenuBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/LoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllBooksPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllBooksPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllMembersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllMembersPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

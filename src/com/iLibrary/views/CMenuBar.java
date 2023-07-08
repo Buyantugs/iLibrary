@@ -12,12 +12,6 @@ public class CMenuBar extends JMenuBar {
     CMenuBar(UILauncher launcher) {
         this.launcher = launcher;
         setRole(null);
-
-        JMenuItem logoutMenuItem = new JMenuItem("Logout");
-        logoutMenuItem.addActionListener(e -> {
-            launcher.navigateTo("LoginPanel");
-        });
-        menu.add(logoutMenuItem);
     }
 
     private void setLibrarianMenuItems() {
@@ -59,15 +53,24 @@ public class CMenuBar extends JMenuBar {
     public void setRole(Auth role) {
         if (role == Auth.LIBRARIAN) {
             setLibrarianMenuItems();
-            add(menu);
         } else if (role == Auth.ADMIN) {
             setAdminMenuItems();
-            add(menu);
         } else if (role == Auth.BOTH) {
             setLibrarianMenuItems();
             setAdminMenuItems();
+        }
+
+        if (role != null) {
+            JMenuItem logoutMenuItem = new JMenuItem("Logout");
+            logoutMenuItem.addActionListener(e -> {
+                menu.removeAll();
+                removeAll();
+                launcher.navigateTo("LoginPanel");
+            });
+            menu.add(logoutMenuItem);
             add(menu);
         }
+
         revalidate();
         repaint();
     }
