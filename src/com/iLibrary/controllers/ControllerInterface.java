@@ -11,6 +11,8 @@ public interface ControllerInterface {
 
     void saveLibraryMember(LibraryMember member);
 
+    void editLibraryMember(LibraryMember updatedMember);
+
     void deleteLibraryMember(String memberId);
 
     List<LibraryMember> allLibraryMembers();

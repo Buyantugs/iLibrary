@@ -25,10 +25,17 @@ public class DataAccessFacade implements DataAccess {
 
     //implement: other save operations
     public void saveNewMember(LibraryMember member) {
-        HashMap<String, LibraryMember> mems = readMemberMap();
+        HashMap<String, LibraryMember> members = readMemberMap();
         String memberId = member.getMemberId();
-        mems.put(memberId, member);
-        saveToStorage(StorageType.MEMBERS, mems);
+        members.put(memberId, member);
+        saveToStorage(StorageType.MEMBERS, members);
+    }
+
+    public void editNewMember(LibraryMember updatedMember) {
+        HashMap<String, LibraryMember> members = readMemberMap();
+        String memberId = updatedMember.getMemberId();
+        members.replace(memberId, updatedMember);
+        saveToStorage(StorageType.MEMBERS, members);
     }
 
     @Override

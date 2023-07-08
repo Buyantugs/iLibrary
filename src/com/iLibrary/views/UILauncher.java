@@ -21,8 +21,8 @@ public class UILauncher extends JFrame {
 
         loginPanel = new LoginPanel(this, menuBar);
         showAllBooksPanel = new ShowAllBooksPanel();
-        showAllMembersPanel = new ShowAllMembersPanel();
         addMemberPanel = new AddMemberPanel(this);
+        showAllMembersPanel = new ShowAllMembersPanel(this, addMemberPanel);
         addBookPanel = new AddBookPanel(this);
 
         mainPanel.add(loginPanel);
@@ -46,20 +46,6 @@ public class UILauncher extends JFrame {
         int frameHeight = f.getSize().height;
         int frameWidth = f.getSize().width;
         f.setLocation(((width - frameWidth) / 2), (height - frameHeight) / 3);
-    }
-
-    public void navigateTo(String from, String to) {
-        for (Component component : mainPanel.getComponents()) {
-            if (component instanceof JPanel panel) {
-                if (panel.getName() != null) {
-                    if (panel.getName().equals(from)) {
-                        panel.setVisible(false);
-                    } else if (panel.getName().equals(to)) {
-                        panel.setVisible(true);
-                    }
-                }
-            }
-        }
     }
 
     public void navigateTo(String to) {

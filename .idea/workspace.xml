@@ -13,7 +13,17 @@
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/controllers/SystemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccessFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccessFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/storage/MEMBERS" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/storage/MEMBERS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/BookCopy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/BookCopy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/LibraryMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/LibraryMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/AddMemberPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/AddMemberPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/CMenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/CMenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/LoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllBooksPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllBooksPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllMembersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllMembersPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

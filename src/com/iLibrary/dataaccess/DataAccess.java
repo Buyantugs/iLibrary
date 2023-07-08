@@ -13,5 +13,7 @@ public interface DataAccess {
 
     void saveNewMember(LibraryMember member);
 
+    void editNewMember(LibraryMember updatedMember);
+
     void deleteMember(String memberId);
 }

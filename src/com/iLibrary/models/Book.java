@@ -9,9 +9,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-/**
- *
- */
 final public class Book implements ShowableOnCTable, Serializable {
 
     private static final long serialVersionUID = 6110690276685962829L;
@@ -34,7 +31,6 @@ final public class Book implements ShowableOnCTable, Serializable {
             BookCopy c = copies[i];
             if (c.equals(copy)) {
                 copies[i] = copy;
-
             }
         }
     }
@@ -45,7 +41,6 @@ final public class Book implements ShowableOnCTable, Serializable {
             retVal.add(c.getCopyNum());
         }
         return retVal;
-
     }
 
     public void addCopy() {
@@ -54,7 +49,6 @@ final public class Book implements ShowableOnCTable, Serializable {
         newArr[copies.length] = new BookCopy(this, copies.length + 1, true);
         copies = newArr;
     }
-
 
     @Override
     public boolean equals(Object ob) {

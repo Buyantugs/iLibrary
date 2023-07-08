@@ -16,15 +16,11 @@ public class CMenuBar extends JMenuBar {
 
     private void setLibrarianMenuItems() {
         JMenuItem showAllBooksMenuItem = new JMenuItem("Show All Books");
-        JMenuItem checkoutBooksBooksMenuItem = new JMenuItem("Checkout Books");
         JMenuItem showCheckoutRecordsMenuItem = new JMenuItem("Show Checkout Records");
         JMenuItem addBookItem = new JMenuItem("Add Book Copy");
 
         showAllBooksMenuItem.addActionListener(e -> {
             launcher.navigateTo("ShowAllBooksPanel");
-        });
-
-        checkoutBooksBooksMenuItem.addActionListener(e -> {
         });
 
         showCheckoutRecordsMenuItem.addActionListener(e -> {
@@ -34,7 +30,6 @@ public class CMenuBar extends JMenuBar {
         });
 
         menu.add(showAllBooksMenuItem);
-        menu.add(checkoutBooksBooksMenuItem);
         menu.add(showCheckoutRecordsMenuItem);
         menu.add(addBookItem);
     }

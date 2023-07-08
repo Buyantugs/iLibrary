@@ -13,7 +13,6 @@ final public class LibraryMember extends Person implements ShowableOnCTable, Ser
         this.memberId = memberId;
     }
 
-
     public String getMemberId() {
         return memberId;
     }

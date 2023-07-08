@@ -8,6 +8,7 @@ import com.iLibrary.utils.Util;
 import javax.swing.*;
 
 public class AddMemberPanel extends JPanel {
+    private boolean isEdit;
     private JLabel addMemberLabel;
     private JLabel firstNameLabel;
     private JTextField firstNameTextField;
@@ -97,6 +98,10 @@ public class AddMemberPanel extends JPanel {
             SystemController sc = new SystemController();
 
             String memberId = Util.generateRandomString();
+            if (isEdit) {
+                memberId = idValueLable.getText();
+            }
+
             String firstname = firstNameTextField.getText().trim();
             String lastname = lastNameTextField.getText().trim();
             String phno = jcomp7.getText().trim();
@@ -108,18 +113,40 @@ public class AddMemberPanel extends JPanel {
             LibraryMember newMember = new LibraryMember(memberId, firstname, lastname, phno, new Address(street, city, state, zip));
 
             try {
-                sc.saveLibraryMember(newMember);
+                if (isEdit) {
+                    sc.editLibraryMember(newMember);
+                } else {
+                    sc.saveLibraryMember(newMember);
+                }
                 launcher.navigateTo("ShowAllMembersPanel");
             } catch (Exception err) {
                 System.err.println(err.getMessage());
             } finally {
-                clearTextFields();
+                makeDefaultFields();
             }
 
         });
     }
 
-    private void clearTextFields() {
+    public void showLibraryMember(LibraryMember member) {
+        isEdit = true;
+        addMemberLabel.setText("Edit Member");
+        saveButton.setText("Update");
+        idValueLable.setText(member.getMemberId());
+        firstNameTextField.setText(member.getFirstName());
+        lastNameTextField.setText(member.getLastName());
+        jcomp7.setText(member.getTelephone());
+        streetTextField.setText(member.getAddress().getStreet());
+        cityTextField.setText(member.getAddress().getCity());
+        jcomp13.setText(member.getAddress().getState());
+        zipTextField.setText(member.getAddress().getZip());
+    }
+
+    private void makeDefaultFields() {
+        isEdit = false;
+        addMemberLabel.setText("Add Member");
+        saveButton.setText("Save");
+        idValueLable.setText("-");
         firstNameTextField.setText("");
         lastNameTextField.setText("");
         jcomp7.setText("");
@@ -129,4 +156,9 @@ public class AddMemberPanel extends JPanel {
         zipTextField.setText("");
     }
 
+    @Override
+    public void setVisible(boolean visible) {
+        super.setVisible(visible);
+        makeDefaultFields();
+    }
 }

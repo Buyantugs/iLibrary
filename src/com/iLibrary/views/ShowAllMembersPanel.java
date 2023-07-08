@@ -7,19 +7,18 @@ import com.iLibrary.views.table.CTable;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
 public class ShowAllMembersPanel extends JPanel {
     private CTable<LibraryMember> memberCTable;
     private SystemController controller;
 
-    ShowAllMembersPanel() {
+    ShowAllMembersPanel(UILauncher launcher, AddMemberPanel addMemberPanel) {
         setName("ShowAllMembersPanel");
         setLayout(new BorderLayout());
         controller = new SystemController();
         memberCTable = new CTable<>(new String[]{"Id", "Firstname", "Lastname"}, controller.allLibraryMembers());
-        memberCTable.setComponentPopupMenu(getPopupMenu());
+        memberCTable.setComponentPopupMenu(getPopupMenu(launcher, addMemberPanel));
 
         setPreferredSize(new Dimension(Util.WINDOW_DIMENSION.width - 50, Util.WINDOW_DIMENSION.height - 65));
         add(new JScrollPane(memberCTable));
@@ -44,10 +43,15 @@ public class ShowAllMembersPanel extends JPanel {
         });
     }
 
-    private JPopupMenu getPopupMenu() {
+    private JPopupMenu getPopupMenu(UILauncher launcher, AddMemberPanel addMemberPanel) {
         JPopupMenu menu = new JPopupMenu();
 
         JMenuItem editMemberMenuItem = new JMenuItem("Edit Member");
+        editMemberMenuItem.addActionListener(e -> {
+            launcher.navigateTo("AddMemberPanel");
+            addMemberPanel.showLibraryMember(controller.allLibraryMembers().get(memberCTable.getSelectedRow()));
+
+        });
         menu.add(editMemberMenuItem);
 
         JMenuItem deleteMemberMenuItem = new JMenuItem("Delete Member");

@@ -2,9 +2,6 @@ package com.iLibrary.models;
 
 import java.io.Serializable;
 
-/**
- * Immutable class
- */
 final public class BookCopy implements Serializable {
 
     private static final long serialVersionUID = -63976228084869815L;
@@ -46,5 +43,4 @@ final public class BookCopy implements Serializable {
         if (!(ob instanceof BookCopy copy)) return false;
         return copy.book.getIsbn().equals(book.getIsbn()) && copy.copyNum == copyNum;
     }
-
 }

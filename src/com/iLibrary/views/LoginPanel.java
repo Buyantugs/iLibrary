@@ -54,10 +54,7 @@ public class LoginPanel extends JPanel {
                     case LIBRARIAN:
                         launcher.navigateTo("ShowAllBooksPanel");
                         break;
-                    case ADMIN:
-                        launcher.navigateTo("ShowAllMembersPanel");
-                        break;
-                    case BOTH:
+                    case ADMIN, BOTH:
                         launcher.navigateTo("ShowAllMembersPanel");
                         break;
                 }

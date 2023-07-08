@@ -17,7 +17,7 @@ public class ShowAllBooksPanel extends JPanel {
         setName("ShowAllBooksPanel");
         setLayout(new BorderLayout());
         controller = new SystemController();
-        bookCTable = new CTable<>(new String[]{"ISBN", "Title", "Max Checkout"}, controller.allBooks());
+        bookCTable = new CTable<>(new String[]{"ISBN", "Title", "Max Checkout Length"}, controller.allBooks());
         bookCTable.setComponentPopupMenu(getPopupMenu());
 
         setPreferredSize(new Dimension(Util.WINDOW_DIMENSION.width - 50, Util.WINDOW_DIMENSION.height - 65));
