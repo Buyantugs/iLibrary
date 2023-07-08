@@ -1,5 +1,8 @@
 package com.iLibrary.views;
 
+import com.iLibrary.controllers.SystemController;
+import com.iLibrary.models.Address;
+import com.iLibrary.models.LibraryMember;
 import com.iLibrary.utils.Util;
 
 import javax.swing.*;
@@ -91,8 +94,39 @@ public class AddMemberPanel extends JPanel {
         idValueLable.setBounds(269, 30, 100, 25);
 
         saveButton.addActionListener(e -> {
-            launcher.navigateTo(this.getName(), "AddBookPanel");
+            SystemController sc = new SystemController();
+
+            String memberId = Util.generateRandomString();
+            String firstname = firstNameTextField.getText().trim();
+            String lastname = lastNameTextField.getText().trim();
+            String phno = jcomp7.getText().trim();
+            String street = streetTextField.getText().trim();
+            String city = cityTextField.getText().trim();
+            String state = jcomp13.getText().trim();
+            String zip = zipTextField.getText().trim();
+
+            LibraryMember newMember = new LibraryMember(memberId, firstname, lastname, phno, new Address(street, city, state, zip));
+
+            try {
+                sc.saveLibraryMember(newMember);
+                launcher.navigateTo("ShowAllMembersPanel");
+            } catch (Exception err) {
+                System.err.println(err.getMessage());
+            } finally {
+                clearTextFields();
+            }
+
         });
+    }
+
+    private void clearTextFields() {
+        firstNameTextField.setText("");
+        lastNameTextField.setText("");
+        jcomp7.setText("");
+        streetTextField.setText("");
+        cityTextField.setText("");
+        jcomp13.setText("");
+        zipTextField.setText("");
     }
 
 }

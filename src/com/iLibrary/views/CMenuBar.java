@@ -16,38 +16,43 @@ public class CMenuBar extends JMenuBar {
 
     private void setLibrarianMenuItems() {
         JMenuItem showAllBooksMenuItem = new JMenuItem("Show All Books");
-        JMenuItem addMemberMenuItem = new JMenuItem("Add Member");
+        JMenuItem checkoutBooksBooksMenuItem = new JMenuItem("Checkout Books");
+        JMenuItem showCheckoutRecordsMenuItem = new JMenuItem("Show Checkout Records");
         JMenuItem addBookItem = new JMenuItem("Add Book Copy");
 
         showAllBooksMenuItem.addActionListener(e -> {
             launcher.navigateTo("ShowAllBooksPanel");
         });
 
-        addMemberMenuItem.addActionListener(e -> {
-            launcher.navigateTo("AddMemberPanel");
+        checkoutBooksBooksMenuItem.addActionListener(e -> {
+        });
+
+        showCheckoutRecordsMenuItem.addActionListener(e -> {
         });
 
         addBookItem.addActionListener(e -> {
         });
 
         menu.add(showAllBooksMenuItem);
-        menu.add(addMemberMenuItem);
+        menu.add(checkoutBooksBooksMenuItem);
+        menu.add(showCheckoutRecordsMenuItem);
         menu.add(addBookItem);
     }
 
     private void setAdminMenuItems() {
         JMenuItem showAllMembersMenuItem = new JMenuItem("Show All Members");
-        JMenuItem showCheckoutRecordsMenuItem = new JMenuItem("Show Checkout Records");
+        JMenuItem addMemberMenuItem = new JMenuItem("Add Member");
 
         showAllMembersMenuItem.addActionListener(e -> {
             launcher.navigateTo("ShowAllMembersPanel");
         });
 
-        showCheckoutRecordsMenuItem.addActionListener(e -> {
+        addMemberMenuItem.addActionListener(e -> {
+            launcher.navigateTo("AddMemberPanel");
         });
 
         menu.add(showAllMembersMenuItem);
-        menu.add(showCheckoutRecordsMenuItem);
+        menu.add(addMemberMenuItem);
     }
 
     public void setRole(Auth role) {

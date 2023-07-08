@@ -50,7 +50,14 @@ public class LoginPanel extends JPanel {
             try {
                 controller.login(usernameTextField.getText().trim(), String.valueOf(passTextField.getPassword()));
                 clearTextFields();
-                launcher.navigateTo("LoginPanel", "ShowAllBooksPanel");
+                switch (SystemController.currentAuth) {
+                    case LIBRARIAN:
+                        launcher.navigateTo("ShowAllBooksPanel");
+                    case ADMIN:
+                        launcher.navigateTo("ShowAllMembersPanel");
+                    case BOTH:
+                        launcher.navigateTo("ShowAllMembersPanel");
+                }
                 menuBar.setRole(SystemController.currentAuth);
             } catch (LoginException ex) {
                 System.err.println(ex.getMessage());

@@ -9,6 +9,8 @@ import com.iLibrary.models.LibraryMember;
 public interface ControllerInterface {
     void login(String id, String password) throws LoginException;
 
+    void saveLibraryMember(LibraryMember member);
+
     List<LibraryMember> allLibraryMembers();
 
     List<Book> allBooks();

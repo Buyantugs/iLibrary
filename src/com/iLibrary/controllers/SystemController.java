@@ -47,4 +47,10 @@ public class SystemController implements ControllerInterface {
         DataAccess da = new DataAccessFacade();
         return da.readMemberMap().values().stream().filter(lm -> lm.getMemberId().startsWith(id)).toList();
     }
+
+    @Override
+    public void saveLibraryMember(LibraryMember member) {
+        DataAccess da = new DataAccessFacade();
+        da.saveNewMember(member);
+    }
 }

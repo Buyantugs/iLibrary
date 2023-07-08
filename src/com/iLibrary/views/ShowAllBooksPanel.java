@@ -24,7 +24,13 @@ public class ShowAllBooksPanel extends JPanel {
         add(new JScrollPane(bookCTable));
 
         JPanel searchBarPanel = new JPanel();
+
         JTextField searchTextField = new JTextField(10);
+        TextPrompt placeholderText = new TextPrompt("Search by isbn", searchTextField);
+        placeholderText.setForeground(Color.GRAY);
+        placeholderText.changeAlpha(0.5f);
+        placeholderText.changeStyle(Font.ITALIC);
+
         JButton searchButton = new JButton("Search");
 
         searchBarPanel.add(searchTextField);

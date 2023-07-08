@@ -24,7 +24,13 @@ public class ShowAllMembersPanel extends JPanel {
         add(new JScrollPane(memberCTable));
 
         JPanel searchBarPanel = new JPanel();
+
         JTextField searchTextField = new JTextField(10);
+        TextPrompt placeholderText = new TextPrompt("Search by id", searchTextField);
+        placeholderText.setForeground(Color.GRAY);
+        placeholderText.changeAlpha(0.5f);
+        placeholderText.changeStyle(Font.ITALIC);
+
         JButton searchButton = new JButton("Search");
 
         searchBarPanel.add(searchTextField);
@@ -44,5 +50,11 @@ public class ShowAllMembersPanel extends JPanel {
         menu.add(editMemberMenuItem);
 
         return menu;
+    }
+
+    @Override
+    public void setVisible(boolean visible) {
+        super.setVisible(visible);
+        memberCTable.setRows(controller.allLibraryMembers());
     }
 }
