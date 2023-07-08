@@ -31,6 +31,13 @@ public class DataAccessFacade implements DataAccess {
         saveToStorage(StorageType.MEMBERS, mems);
     }
 
+    @Override
+    public void deleteMember(String memberId) {
+        HashMap<String, LibraryMember> mems = readMemberMap();
+        mems.remove(memberId);
+        saveToStorage(StorageType.MEMBERS, mems);
+    }
+
     @SuppressWarnings("unchecked")
     public HashMap<String, Book> readBooksMap() {
         return (HashMap<String, Book>) readFromStorage(StorageType.BOOKS);

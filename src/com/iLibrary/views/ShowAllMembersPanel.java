@@ -7,6 +7,7 @@ import com.iLibrary.views.table.CTable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
 public class ShowAllMembersPanel extends JPanel {
@@ -49,12 +50,24 @@ public class ShowAllMembersPanel extends JPanel {
         JMenuItem editMemberMenuItem = new JMenuItem("Edit Member");
         menu.add(editMemberMenuItem);
 
+        JMenuItem deleteMemberMenuItem = new JMenuItem("Delete Member");
+        deleteMemberMenuItem.addActionListener(e -> {
+            controller.deleteLibraryMember(memberCTable.getValueAt(memberCTable.getSelectedRow(), 0).toString());
+            refetchData();
+        });
+        menu.add(deleteMemberMenuItem);
+
         return menu;
     }
 
     @Override
     public void setVisible(boolean visible) {
         super.setVisible(visible);
+        memberCTable.setRows(controller.allLibraryMembers());
+        refetchData();
+    }
+
+    private void refetchData() {
         memberCTable.setRows(controller.allLibraryMembers());
     }
 }

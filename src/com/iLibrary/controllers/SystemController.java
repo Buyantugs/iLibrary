@@ -53,4 +53,10 @@ public class SystemController implements ControllerInterface {
         DataAccess da = new DataAccessFacade();
         da.saveNewMember(member);
     }
+
+    @Override
+    public void deleteLibraryMember(String memberId) {
+        DataAccess da = new DataAccessFacade();
+        da.deleteMember(memberId);
+    }
 }
