@@ -5,23 +5,23 @@ import com.iLibrary.utils.Util;
 
 import javax.swing.*;
 
-public class CheckoutBookPanel extends JPanel {
-    private JLabel checkoutBookLable;
+public class AddBookCopyPanel extends JPanel {
+    private JLabel addBookCopyLable;
     private JLabel isbnLabel;
     private JTextField isbnTextField;
-    private JLabel memberIdLabel;
-    private JTextField memberIdTextField;
+    private JLabel copyNumberLabel;
+    private JTextField copyNumberTextField;
     private JButton saveBtn;
     private SystemController controller;
 
-    CheckoutBookPanel(UILauncher launcher) {
-        setName("CheckoutBookPanel");
+    AddBookCopyPanel(UILauncher launcher) {
+        setName("AddBookCopyPanel");
         //construct components
-        checkoutBookLable = new JLabel("Checkout Book");
+        addBookCopyLable = new JLabel("Add Book Copy");
         isbnLabel = new JLabel("ISBN:");
         isbnTextField = new JTextField(5);
-        memberIdLabel = new JLabel("Member Id:");
-        memberIdTextField = new JTextField(5);
+        copyNumberLabel = new JLabel("Copy Number:");
+        copyNumberTextField = new JTextField(5);
         saveBtn = new JButton("Save");
 
         //adjust size and set layout
@@ -29,29 +29,38 @@ public class CheckoutBookPanel extends JPanel {
         setLayout(null);
 
         //add components
-        add(checkoutBookLable);
+        add(addBookCopyLable);
         add(isbnLabel);
         add(isbnTextField);
-        add(memberIdLabel);
-        add(memberIdTextField);
+        add(copyNumberLabel);
+        add(copyNumberTextField);
         add(saveBtn);
 
         //set component bounds (only needed by Absolute Positioning)
-        checkoutBookLable.setBounds(180, 40, 100, 25);
+        addBookCopyLable.setBounds(180, 40, 100, 25);
         isbnLabel.setBounds(180, 95, 100, 25);
         isbnTextField.setBounds(265, 95, 190, 20);
-        memberIdLabel.setBounds(180, 135, 100, 25);
-        memberIdTextField.setBounds(265, 135, 190, 20);
+        copyNumberLabel.setBounds(180, 135, 100, 25);
+        copyNumberTextField.setBounds(265, 135, 190, 20);
         saveBtn.setBounds(265, 185, 100, 25);
 
         saveBtn.addActionListener(e -> {
             controller = new SystemController();
             String isbn = isbnTextField.getText();
-            String memberId = memberIdTextField.getText();
+            String copyNumberString = copyNumberTextField.getText();
+
+
+            int noOfBookCopy = 0;
 
             try {
-                controller.checkoutBook(memberId, isbn);
-                launcher.navigateTo("ShowAllMembersPanel");
+                noOfBookCopy = Integer.parseInt(copyNumberString);
+            } catch (Exception exception) {
+                noOfBookCopy = 0;
+            }
+
+            try {
+                controller.addBookCopy(isbn, noOfBookCopy);
+                launcher.navigateTo("ShowAllBooksPanel");
             } catch (Exception exc) {
                 exc.printStackTrace();
             } finally {
@@ -67,6 +76,6 @@ public class CheckoutBookPanel extends JPanel {
 
     private void clearTextFields() {
         isbnTextField.setText("");
-        memberIdTextField.setText("");
+        copyNumberTextField.setText("");
     }
 }

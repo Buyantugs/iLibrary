@@ -8,15 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c266f634-31c5-438b-8f29-d99cb3ecf2e4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/iLibrary/views/AddBookCopyPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/controllers/ControllerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/controllers/ControllerInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/controllers/SystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccessFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/DataAccessFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/TestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/storage/BOOKS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/storage/MEMBERS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/storage/USERS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/BookCopy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/BookCopy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/models/CheckOutRecordEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/models/CheckOutRecordEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/CheckoutBookPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/CheckoutBookPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/storage/BOOKS" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/dataaccess/storage/BOOKS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/CMenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/CMenuBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllBooksPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/ShowAllBooksPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/iLibrary/views/UILauncher.java" afterDir="false" />
     </list>

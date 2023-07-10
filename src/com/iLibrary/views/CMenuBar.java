@@ -47,12 +47,6 @@ public class CMenuBar extends JMenuBar {
             setAdminMenuItems();
         } else if (role == Auth.BOTH) {
             setLibrarianMenuItems();
-
-            JMenuItem addBookCopyMenuItem = new JMenuItem("Add Book Copy");
-            addBookCopyMenuItem.addActionListener(e -> {
-            });
-            menu.add(addBookCopyMenuItem);
-
             setAdminMenuItems();
         }
 

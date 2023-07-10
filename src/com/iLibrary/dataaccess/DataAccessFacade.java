@@ -118,9 +118,9 @@ public class DataAccessFacade implements DataAccess {
     }
 
     @Override
-    public void addBookCopy(Book book, int copyCount) {
+    public void addBookCopy(String isbn, int copyCount) {
         HashMap<String, Book> books = readBooksMap();
-        Book searchedBook = books.get(book.getIsbn());
+        Book searchedBook = books.get(isbn);
         for (int i = 0; i < copyCount; i++) {
             searchedBook.addCopy();
         }

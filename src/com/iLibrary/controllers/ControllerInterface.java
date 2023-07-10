@@ -25,5 +25,5 @@ public interface ControllerInterface {
 
     void checkoutBook(String memberId, String bookId);
 
-    void addBookCopy(Book book, int copyCount);
+    void addBookCopy(String isbn, int copyCount);
 }

@@ -82,8 +82,8 @@ public class SystemController implements ControllerInterface {
     }
 
     @Override
-    public void addBookCopy(Book book, int copyCount) {
+    public void addBookCopy(String isbn, int copyCount) {
         DataAccess da = new DataAccessFacade();
-        da.addBookCopy(book, copyCount);
+        da.addBookCopy(isbn, copyCount);
     }
 }

@@ -1,6 +1,7 @@
 package com.iLibrary.views;
 
 import com.iLibrary.controllers.SystemController;
+import com.iLibrary.models.Auth;
 import com.iLibrary.models.Book;
 import com.iLibrary.utils.Util;
 import com.iLibrary.views.table.CTable;
@@ -11,14 +12,21 @@ import java.util.List;
 
 public class ShowAllBooksPanel extends JPanel {
     private CTable<Book> bookCTable;
-    private SystemController controller;
+    private UILauncher launcher;
+    private CheckoutBookPanel checkoutBookPanel;
+    private AddBookCopyPanel addBookCopyPanel;
 
-    ShowAllBooksPanel(UILauncher launcher, CheckoutBookPanel checkoutBookPanel) {
+    ShowAllBooksPanel(UILauncher launcher, CheckoutBookPanel checkoutBookPanel, AddBookCopyPanel addBookCopyPanel) {
+        this.launcher = launcher;
+        this.checkoutBookPanel = checkoutBookPanel;
+        this.addBookCopyPanel = addBookCopyPanel;
+
         setName("ShowAllBooksPanel");
         setLayout(new BorderLayout());
-        controller = new SystemController();
+
+        SystemController controller = new SystemController();
         bookCTable = new CTable<>(new String[]{"ISBN", "Title", "Max Checkout Length"}, controller.allBooks());
-        bookCTable.setComponentPopupMenu(getPopupMenu(launcher, checkoutBookPanel));
+        bookCTable.setComponentPopupMenu(getPopupMenu());
 
         setPreferredSize(new Dimension(Util.WINDOW_DIMENSION.width - 50, Util.WINDOW_DIMENSION.height - 65));
         add(new JScrollPane(bookCTable));
@@ -43,7 +51,7 @@ public class ShowAllBooksPanel extends JPanel {
         });
     }
 
-    private JPopupMenu getPopupMenu(UILauncher launcher, CheckoutBookPanel checkoutBookPanel) {
+    private JPopupMenu getPopupMenu() {
         JPopupMenu menu = new JPopupMenu();
 
         JMenuItem checkoutMenuItem = new JMenuItem("Checkout Book");
@@ -59,6 +67,21 @@ public class ShowAllBooksPanel extends JPanel {
         });
         menu.add(printCheckoutRecordsMenuItem);
 
+        if (SystemController.currentAuth == Auth.BOTH) {
+            JMenuItem addBookCopyMenuItem = new JMenuItem("Add Book Copy");
+            addBookCopyMenuItem.addActionListener(e -> {
+                launcher.navigateTo("AddBookCopyPanel");
+                addBookCopyPanel.setISBN(bookCTable.getValueAt(bookCTable.getSelectedRow(), 0).toString());
+            });
+            menu.add(addBookCopyMenuItem);
+        }
+
         return menu;
+    }
+
+    @Override
+    public void setVisible(boolean visible) {
+        super.setVisible(visible);
+        bookCTable.setComponentPopupMenu(getPopupMenu());
     }
 }

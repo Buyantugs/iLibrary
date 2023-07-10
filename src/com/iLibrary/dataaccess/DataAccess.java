@@ -19,7 +19,7 @@ public interface DataAccess {
 
     void checkoutBook(LibraryMember member, BookCopy bookCopy);
 
-    void addBookCopy(Book book, int copyCount);
+    void addBookCopy(String isbn, int copyCount);
 
     HashMap<String, CheckOutRecord> readCheckOutRecordsMap();
 
