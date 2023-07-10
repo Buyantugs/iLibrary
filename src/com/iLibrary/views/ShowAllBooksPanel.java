@@ -49,6 +49,9 @@ public class ShowAllBooksPanel extends JPanel {
         JMenuItem checkoutMenuItem = new JMenuItem("Checkout Book");
         menu.add(checkoutMenuItem);
 
+        JMenuItem printCheckoutRecordsMenuItem = new JMenuItem("Print Checkout Records");
+        menu.add(printCheckoutRecordsMenuItem);
+
         return menu;
     }
 }

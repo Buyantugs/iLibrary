@@ -16,4 +16,12 @@ public interface DataAccess {
     void editNewMember(LibraryMember updatedMember);
 
     void deleteMember(String memberId);
+
+    void checkoutBook(LibraryMember member, BookCopy bookCopy);
+
+    void addBookCopy(Book book, int copyCount);
+
+    HashMap<String, CheckOutRecord> readCheckOutRecordsMap();
+
+    void saveCheckOutRecord(HashMap<String, CheckOutRecord> hmCheckOutRecords);
 }

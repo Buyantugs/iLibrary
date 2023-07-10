@@ -7,7 +7,7 @@ import com.iLibrary.utils.Util;
 
 import javax.swing.*;
 
-public class AddMemberPanel extends JPanel {
+public class AddOrEditMemberPanel extends JPanel {
     private boolean isEdit;
     private JLabel addMemberLabel;
     private JLabel firstNameLabel;
@@ -28,7 +28,7 @@ public class AddMemberPanel extends JPanel {
     private JLabel idLable;
     private JLabel idValueLable;
 
-    AddMemberPanel(UILauncher launcher) {
+    AddOrEditMemberPanel(UILauncher launcher) {
         setName("AddMemberPanel");
         //construct components
         addMemberLabel = new JLabel("Add Member");

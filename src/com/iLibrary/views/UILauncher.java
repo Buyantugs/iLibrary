@@ -9,7 +9,7 @@ public class UILauncher extends JFrame {
     private JPanel mainPanel;
     private LoginPanel loginPanel;
     private ShowAllBooksPanel showAllBooksPanel;
-    private AddMemberPanel addMemberPanel;
+    private AddOrEditMemberPanel addOrEditMemberPanel;
     private ShowAllMembersPanel showAllMembersPanel;
     private AddBookPanel addBookPanel;
     private CMenuBar menuBar;
@@ -21,14 +21,14 @@ public class UILauncher extends JFrame {
 
         loginPanel = new LoginPanel(this, menuBar);
         showAllBooksPanel = new ShowAllBooksPanel();
-        addMemberPanel = new AddMemberPanel(this);
-        showAllMembersPanel = new ShowAllMembersPanel(this, addMemberPanel);
+        addOrEditMemberPanel = new AddOrEditMemberPanel(this);
+        showAllMembersPanel = new ShowAllMembersPanel(this, addOrEditMemberPanel);
         addBookPanel = new AddBookPanel(this);
 
         mainPanel.add(loginPanel);
         mainPanel.add(showAllBooksPanel);
         mainPanel.add(showAllMembersPanel);
-        mainPanel.add(addMemberPanel);
+        mainPanel.add(addOrEditMemberPanel);
         mainPanel.add(addBookPanel);
 
         setResizable(false);

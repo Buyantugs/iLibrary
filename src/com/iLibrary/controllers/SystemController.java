@@ -2,6 +2,7 @@ package com.iLibrary.controllers;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.iLibrary.dataaccess.*;
 import com.iLibrary.exceptions.LoginException;
@@ -64,5 +65,25 @@ public class SystemController implements ControllerInterface {
     public void deleteLibraryMember(String memberId) {
         DataAccess da = new DataAccessFacade();
         da.deleteMember(memberId);
+    }
+
+    @Override
+    public void checkoutBook(String memberId, String bookId) {
+        DataAccess da = new DataAccessFacade();
+        Map<String, LibraryMember> members = da.readMemberMap();
+
+        if (members.containsKey(memberId)) {
+            LibraryMember searchedMember = members.get(memberId);
+            BookCopy bookCopy = da.readBooksMap().get(bookId).getNextAvailableCopy();
+            da.checkoutBook(searchedMember, bookCopy);
+        } else {
+            System.err.println("Library member not found");
+        }
+    }
+
+    @Override
+    public void addBookCopy(Book book, int copyCount) {
+        DataAccess da = new DataAccessFacade();
+        da.addBookCopy(book, copyCount);
     }
 }

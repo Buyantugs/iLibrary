@@ -6,21 +6,21 @@ import com.iLibrary.utils.Util;
 
 import javax.swing.*;
 
-public class LoginPanel extends JPanel {
-    private JLabel loginLable;
-    private JLabel usernameLabel;
-    private JTextField usernameTextField;
+public class CheckoutBookPanel extends JPanel {
+    private JLabel checkoutBookLable;
+    private JLabel isbnLabel;
+    private JTextField isbnTextField;
     private JLabel passwordLabel;
     private JPasswordField passTextField;
     private JButton loginBtn;
     private SystemController controller;
 
-    LoginPanel(UILauncher launcher, CMenuBar menuBar) {
-        setName("LoginPanel");
+    CheckoutBookPanel(UILauncher launcher, CMenuBar menuBar) {
+        setName("CheckoutBookPanel");
         //construct components
-        loginLable = new JLabel("Login");
-        usernameLabel = new JLabel("Username:");
-        usernameTextField = new JTextField(5);
+        checkoutBookLable = new JLabel("Checkout Book");
+        isbnLabel = new JLabel("ISBN:");
+        isbnTextField = new JTextField(5);
         passwordLabel = new JLabel("Password:");
         passTextField = new JPasswordField(5);
         loginBtn = new JButton("Login");
@@ -30,17 +30,17 @@ public class LoginPanel extends JPanel {
         setLayout(null);
 
         //add components
-        add(loginLable);
-        add(usernameLabel);
-        add(usernameTextField);
+        add(checkoutBookLable);
+        add(isbnLabel);
+        add(isbnTextField);
         add(passwordLabel);
         add(passTextField);
         add(loginBtn);
 
         //set component bounds (only needed by Absolute Positioning)
-        loginLable.setBounds(180, 40, 100, 25);
-        usernameLabel.setBounds(180, 95, 100, 25);
-        usernameTextField.setBounds(265, 95, 190, 20);
+        checkoutBookLable.setBounds(180, 40, 100, 25);
+        isbnLabel.setBounds(180, 95, 100, 25);
+        isbnTextField.setBounds(265, 95, 190, 20);
         passwordLabel.setBounds(180, 135, 100, 25);
         passTextField.setBounds(265, 135, 190, 20);
         loginBtn.setBounds(265, 185, 100, 25);
@@ -48,7 +48,7 @@ public class LoginPanel extends JPanel {
         loginBtn.addActionListener(e -> {
             controller = new SystemController();
             try {
-                controller.login(usernameTextField.getText().trim(), String.valueOf(passTextField.getPassword()));
+                controller.login(isbnTextField.getText().trim(), String.valueOf(passTextField.getPassword()));
                 System.out.println(SystemController.currentAuth);
                 switch (SystemController.currentAuth) {
                     case LIBRARIAN:
@@ -68,7 +68,7 @@ public class LoginPanel extends JPanel {
     }
 
     private void clearTextFields() {
-        usernameTextField.setText("");
+        isbnTextField.setText("");
         passTextField.setText("");
     }
 }

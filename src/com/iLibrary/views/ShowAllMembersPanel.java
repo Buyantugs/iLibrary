@@ -13,12 +13,12 @@ public class ShowAllMembersPanel extends JPanel {
     private CTable<LibraryMember> memberCTable;
     private SystemController controller;
 
-    ShowAllMembersPanel(UILauncher launcher, AddMemberPanel addMemberPanel) {
+    ShowAllMembersPanel(UILauncher launcher, AddOrEditMemberPanel addOrEditMemberPanel) {
         setName("ShowAllMembersPanel");
         setLayout(new BorderLayout());
         controller = new SystemController();
         memberCTable = new CTable<>(new String[]{"Id", "Firstname", "Lastname"}, controller.allLibraryMembers());
-        memberCTable.setComponentPopupMenu(getPopupMenu(launcher, addMemberPanel));
+        memberCTable.setComponentPopupMenu(getPopupMenu(launcher, addOrEditMemberPanel));
 
         setPreferredSize(new Dimension(Util.WINDOW_DIMENSION.width - 50, Util.WINDOW_DIMENSION.height - 65));
         add(new JScrollPane(memberCTable));
@@ -43,13 +43,13 @@ public class ShowAllMembersPanel extends JPanel {
         });
     }
 
-    private JPopupMenu getPopupMenu(UILauncher launcher, AddMemberPanel addMemberPanel) {
+    private JPopupMenu getPopupMenu(UILauncher launcher, AddOrEditMemberPanel addOrEditMemberPanel) {
         JPopupMenu menu = new JPopupMenu();
 
         JMenuItem editMemberMenuItem = new JMenuItem("Edit Member");
         editMemberMenuItem.addActionListener(e -> {
             launcher.navigateTo("AddMemberPanel");
-            addMemberPanel.showLibraryMember(controller.allLibraryMembers().get(memberCTable.getSelectedRow()));
+            addOrEditMemberPanel.showLibraryMember(controller.allLibraryMembers().get(memberCTable.getSelectedRow()));
 
         });
         menu.add(editMemberMenuItem);

@@ -16,22 +16,12 @@ public class CMenuBar extends JMenuBar {
 
     private void setLibrarianMenuItems() {
         JMenuItem showAllBooksMenuItem = new JMenuItem("Show All Books");
-        JMenuItem showCheckoutRecordsMenuItem = new JMenuItem("Show Checkout Records");
-        JMenuItem addBookItem = new JMenuItem("Add Book Copy");
 
         showAllBooksMenuItem.addActionListener(e -> {
             launcher.navigateTo("ShowAllBooksPanel");
         });
 
-        showCheckoutRecordsMenuItem.addActionListener(e -> {
-        });
-
-        addBookItem.addActionListener(e -> {
-        });
-
         menu.add(showAllBooksMenuItem);
-        menu.add(showCheckoutRecordsMenuItem);
-        menu.add(addBookItem);
     }
 
     private void setAdminMenuItems() {
@@ -57,6 +47,12 @@ public class CMenuBar extends JMenuBar {
             setAdminMenuItems();
         } else if (role == Auth.BOTH) {
             setLibrarianMenuItems();
+
+            JMenuItem addBookCopyMenuItem = new JMenuItem("Add Book Copy");
+            addBookCopyMenuItem.addActionListener(e -> {
+            });
+            menu.add(addBookCopyMenuItem);
+
             setAdminMenuItems();
         }
 

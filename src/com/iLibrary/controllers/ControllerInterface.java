@@ -22,4 +22,8 @@ public interface ControllerInterface {
     List<Book> searchBooksByISBN(String isbn);
 
     List<LibraryMember> searchMembersById(String id);
+
+    void checkoutBook(String memberId, String bookId);
+
+    void addBookCopy(Book book, int copyCount);
 }

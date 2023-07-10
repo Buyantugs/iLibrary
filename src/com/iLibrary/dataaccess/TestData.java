@@ -7,16 +7,7 @@ import java.util.List;
 
 import com.iLibrary.models.*;
 
-/**
- * This class loads data into the data repository and also
- * sets up the storage units that are used in the application.
- * The main method in this class must be run once (and only
- * once) before the rest of the application can work properly.
- * It will create three serialized objects in the dataaccess.storage
- * folder.
- */
 public class TestData {
-    ///////////// DATA //////////////
     List<LibraryMember> members = new ArrayList<LibraryMember>();
 
     @SuppressWarnings("serial")
@@ -71,11 +62,11 @@ public class TestData {
         allBooks.get(3).addCopy();
         allBooks.get(2).addCopy();
         allBooks.get(2).addCopy();
-        DataAccessFacade.loadBookMap(allBooks);
+        DataAccessFacade.saveBookMap(allBooks);
     }
 
     public void userData() {
-        DataAccessFacade.loadUserMap(allUsers);
+        DataAccessFacade.saveUserMap(allUsers);
     }
 
     //create library members
@@ -91,7 +82,7 @@ public class TestData {
         libraryMember = new LibraryMember("1004", "Ricardo", "Montalbahn", "641-472-2871", addresses.get(7));
         members.add(libraryMember);
 
-        DataAccessFacade.loadMemberMap(members);
+        DataAccessFacade.saveMemberMap(members);
     }
 
     public static void main(String[] args) {

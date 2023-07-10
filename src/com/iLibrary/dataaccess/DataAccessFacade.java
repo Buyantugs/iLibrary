@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,7 +19,7 @@ import com.iLibrary.models.*;
 public class DataAccessFacade implements DataAccess {
 
     enum StorageType {
-        BOOKS, MEMBERS, USERS
+        BOOKS, MEMBERS, USERS, CHECKOUTRECORD
     }
 
     public static final String OUTPUT_DIR = System.getProperty("user.dir")
@@ -62,22 +65,68 @@ public class DataAccessFacade implements DataAccess {
     }
 
 
-    static void loadBookMap(List<Book> bookList) {
+    static void saveBookMap(List<Book> bookList) {
         HashMap<String, Book> books = new HashMap<String, Book>();
         bookList.forEach(book -> books.put(book.getIsbn(), book));
         saveToStorage(StorageType.BOOKS, books);
     }
 
-    static void loadUserMap(List<User> userList) {
+    static void saveUserMap(List<User> userList) {
         HashMap<String, User> users = new HashMap<String, User>();
         userList.forEach(user -> users.put(user.getId(), user));
         saveToStorage(StorageType.USERS, users);
     }
 
-    static void loadMemberMap(List<LibraryMember> memberList) {
+    static void saveMemberMap(List<LibraryMember> memberList) {
         HashMap<String, LibraryMember> members = new HashMap<String, LibraryMember>();
         memberList.forEach(member -> members.put(member.getMemberId(), member));
         saveToStorage(StorageType.MEMBERS, members);
+    }
+
+    @Override
+    public void checkoutBook(LibraryMember member, BookCopy bookCopy) {
+        bookCopy.changeAvailability();
+
+        LocalDate dueDate = LocalDate.now().plusDays(bookCopy.getBook().getMaxCheckoutLength());
+        LocalDate checkoutDate = LocalDate.now();
+
+        CheckOutRecordEntry checkoutEntry = new CheckOutRecordEntry(dueDate, checkoutDate, bookCopy);
+
+        HashMap<String, CheckOutRecord> checkoutRecords = readCheckOutRecordsMap();
+
+        CheckOutRecord checkOutRecord;
+
+        if (checkoutRecords.get(member.getMemberId()) != null) {
+            checkOutRecord = checkoutRecords.get(member.getMemberId());
+            checkOutRecord.addCheckOutRecordEntry(checkoutEntry);
+        } else {
+            checkOutRecord = new CheckOutRecord(member, List.of(checkoutEntry));
+        }
+
+        checkoutRecords.put(member.getMemberId(), checkOutRecord);
+        saveCheckOutRecord(checkoutRecords);
+    }
+
+    @Override
+    public void addBookCopy(Book book, int copyCount) {
+        HashMap<String, Book> books = readBooksMap();
+        Book searchedBook = books.get(book.getIsbn());
+        for (int i = 0; i < copyCount; i++) {
+            searchedBook.addCopy();
+        }
+        books.put(searchedBook.getIsbn(), searchedBook);
+        saveToStorage(StorageType.BOOKS, books);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public HashMap<String, CheckOutRecord> readCheckOutRecordsMap() {
+        return (HashMap<String, CheckOutRecord>) readFromStorage(StorageType.CHECKOUTRECORD);
+    }
+
+    @Override
+    public void saveCheckOutRecord(HashMap<String, CheckOutRecord> checkoutRecords) {
+        saveToStorage(StorageType.CHECKOUTRECORD, checkoutRecords);
     }
 
     static void saveToStorage(StorageType type, Object ob) {
