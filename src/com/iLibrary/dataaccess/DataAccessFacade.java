@@ -83,8 +83,15 @@ public class DataAccessFacade implements DataAccess {
         saveToStorage(StorageType.MEMBERS, members);
     }
 
+    static void saveCheckoutRecordMap(CheckOutRecord checkoutRecord) {
+        HashMap<String, CheckOutRecord> checkoutRecords = new HashMap<String, CheckOutRecord>();
+        checkoutRecords.put(checkoutRecord.getMember().getMemberId(), checkoutRecord);
+        saveToStorage(StorageType.CHECKOUTRECORD, checkoutRecords);
+    }
+
     @Override
     public void checkoutBook(LibraryMember member, BookCopy bookCopy) {
+        System.out.println(member + "\t" + bookCopy);
         bookCopy.changeAvailability();
 
         LocalDate dueDate = LocalDate.now().plusDays(bookCopy.getBook().getMaxCheckoutLength());
@@ -100,7 +107,10 @@ public class DataAccessFacade implements DataAccess {
             checkOutRecord = checkoutRecords.get(member.getMemberId());
             checkOutRecord.addCheckOutRecordEntry(checkoutEntry);
         } else {
-            checkOutRecord = new CheckOutRecord(member, List.of(checkoutEntry));
+            List<CheckOutRecordEntry> recordEntries = new ArrayList<>();
+            recordEntries.add(checkoutEntry);
+
+            checkOutRecord = new CheckOutRecord(member, recordEntries);
         }
 
         checkoutRecords.put(member.getMemberId(), checkOutRecord);

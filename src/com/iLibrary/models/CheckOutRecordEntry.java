@@ -27,4 +27,13 @@ public class CheckOutRecordEntry implements Serializable {
     public BookCopy getBookCopy() {
         return bookCopy;
     }
+
+    @Override
+    public String toString() {
+        return "CheckOutRecordEntry{" +
+                "dueDate=" + dueDate +
+                ", checkOutDate=" + checkOutDate +
+                ", bookCopy=" + bookCopy +
+                '}';
+    }
 }

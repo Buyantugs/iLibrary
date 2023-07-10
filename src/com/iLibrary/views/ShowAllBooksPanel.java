@@ -13,12 +13,12 @@ public class ShowAllBooksPanel extends JPanel {
     private CTable<Book> bookCTable;
     private SystemController controller;
 
-    ShowAllBooksPanel() {
+    ShowAllBooksPanel(UILauncher launcher, CheckoutBookPanel checkoutBookPanel) {
         setName("ShowAllBooksPanel");
         setLayout(new BorderLayout());
         controller = new SystemController();
         bookCTable = new CTable<>(new String[]{"ISBN", "Title", "Max Checkout Length"}, controller.allBooks());
-        bookCTable.setComponentPopupMenu(getPopupMenu());
+        bookCTable.setComponentPopupMenu(getPopupMenu(launcher, checkoutBookPanel));
 
         setPreferredSize(new Dimension(Util.WINDOW_DIMENSION.width - 50, Util.WINDOW_DIMENSION.height - 65));
         add(new JScrollPane(bookCTable));
@@ -43,13 +43,20 @@ public class ShowAllBooksPanel extends JPanel {
         });
     }
 
-    private JPopupMenu getPopupMenu() {
+    private JPopupMenu getPopupMenu(UILauncher launcher, CheckoutBookPanel checkoutBookPanel) {
         JPopupMenu menu = new JPopupMenu();
 
         JMenuItem checkoutMenuItem = new JMenuItem("Checkout Book");
+        checkoutMenuItem.addActionListener(e -> {
+            launcher.navigateTo("CheckoutBookPanel");
+            checkoutBookPanel.setISBN(bookCTable.getValueAt(bookCTable.getSelectedRow(), 0).toString());
+        });
         menu.add(checkoutMenuItem);
 
         JMenuItem printCheckoutRecordsMenuItem = new JMenuItem("Print Checkout Records");
+        printCheckoutRecordsMenuItem.addActionListener(e -> {
+
+        });
         menu.add(printCheckoutRecordsMenuItem);
 
         return menu;

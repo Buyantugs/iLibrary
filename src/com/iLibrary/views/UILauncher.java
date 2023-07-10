@@ -12,6 +12,7 @@ public class UILauncher extends JFrame {
     private AddOrEditMemberPanel addOrEditMemberPanel;
     private ShowAllMembersPanel showAllMembersPanel;
     private AddBookPanel addBookPanel;
+    private CheckoutBookPanel checkoutBookPanel;
     private CMenuBar menuBar;
 
     public UILauncher() {
@@ -20,14 +21,16 @@ public class UILauncher extends JFrame {
         menuBar = new CMenuBar(this);
 
         loginPanel = new LoginPanel(this, menuBar);
-        showAllBooksPanel = new ShowAllBooksPanel();
         addOrEditMemberPanel = new AddOrEditMemberPanel(this);
         showAllMembersPanel = new ShowAllMembersPanel(this, addOrEditMemberPanel);
+        checkoutBookPanel = new CheckoutBookPanel(this);
+        showAllBooksPanel = new ShowAllBooksPanel(this, checkoutBookPanel);
         addBookPanel = new AddBookPanel(this);
 
         mainPanel.add(loginPanel);
         mainPanel.add(showAllBooksPanel);
         mainPanel.add(showAllMembersPanel);
+        mainPanel.add(checkoutBookPanel);
         mainPanel.add(addOrEditMemberPanel);
         mainPanel.add(addBookPanel);
 

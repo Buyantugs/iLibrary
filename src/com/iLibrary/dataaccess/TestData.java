@@ -1,5 +1,6 @@
 package com.iLibrary.dataaccess;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -85,11 +86,29 @@ public class TestData {
         DataAccessFacade.saveMemberMap(members);
     }
 
+    public void checkOutRecordData() {
+        @SuppressWarnings("serial")
+        LibraryMember libraryMember = new LibraryMember("1001", "Andrew", "Smiths", "444-333-2211", addresses.get(4));
+
+        CheckOutRecordEntry entry = new CheckOutRecordEntry(LocalDate.now(), LocalDate.now(),
+                allBooks.get(0).getCopy(0));
+        CheckOutRecordEntry entry1 = new CheckOutRecordEntry(LocalDate.now(), LocalDate.now(),
+                allBooks.get(0).getCopy(0));
+
+        List<CheckOutRecordEntry> list = new ArrayList<CheckOutRecordEntry>();
+        list.add(entry);
+        list.add(entry1);
+
+        DataAccessFacade.saveCheckoutRecordMap(new CheckOutRecord(libraryMember, list));
+    }
+
     public static void main(String[] args) {
         TestData td = new TestData();
         td.bookData();
         td.libraryMemberData();
         td.userData();
+        td.checkOutRecordData();
+
         DataAccess da = new DataAccessFacade();
         System.out.println(da.readBooksMap());
         System.out.println(da.readUserMap());
